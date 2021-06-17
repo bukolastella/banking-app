@@ -1,0 +1,42 @@
+.input {
+  position: relative;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+.input label {
+  position: absolute;
+  top: 10px;
+  transition: 0.3s ease-in-out;
+  color: rgb(47, 57, 78);
+  cursor: text;
+  pointer-events: none;
+}
+.input input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+.input input:valid + label,
+.input input:focus + label {
+  transform: translateY(-20px);
+}
+.input input:focus {
+  font-size: 20px;
+  border-bottom: 1px solid green;
+}
+.btn {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  color: white;
+  font-size: 1.1rem;
+}

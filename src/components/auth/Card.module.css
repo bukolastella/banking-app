@@ -1,0 +1,46 @@
+.screen {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(247, 250, 251);
+}
+
+.Card {
+  box-shadow: 0px 0px 10px #777777;
+  width: 450px;
+  /* width: 40%; */
+  border-radius: 5px;
+  padding: 3rem 2.5rem;
+  background-color: white;
+}
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(221, 241, 238);
+  width: fit-content;
+  padding: 0.3rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+.flex div {
+  background-color: rgb(50, 168, 170);
+  text-transform: capitalize;
+  border-radius: 20px;
+  padding: 0.5rem 2rem;
+  color: white;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .Card {
+    width: 90%;
+  }
+}
+@media (max-width: 360px) {
+  .flex div {
+    padding: 0.5rem 1.4rem;
+  }
+}
