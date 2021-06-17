@@ -1,51 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 // import Input from "./Input";
 import classes from "./Register.module.css";
 import Card from "./Card";
 import Loader from "../ui/Loader";
 import Error from "../ui/Error";
-const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const registerHandler = (event) => {
-    event.preventDefault();
-    console.log("kjksd");
-    const fetchData = async () => {
-      setLoading(true);
-      const response = await fetch(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDXsGc-C5AZGrgtOB6J5N2_-LG9xaAm4rY",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            email: email,
-            password: password,
-            returnSecureToken: true,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const data = await response.json();
+import useInput from "../../hooks/use-input";
 
-      if (!response.ok) {
-        setError(data.error.message);
-        setTimeout(() => {
-          if (!error) {
-            setError(false);
-          }
-        }, 3000);
-      }
-      setLoading(false);
-    };
-    try {
-      fetchData();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+const Register = () => {
+  const {
+    password,
+    email,
+    loading,
+    error,
+    setError,
+    loginHandler: registerHandler,
+    setEmail,
+    setPassword,
+  } = useInput(
+    "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDXsGc-C5AZGrgtOB6J5N2_-LG9xaAm4rY"
+  );
 
   return (
     <Card>
