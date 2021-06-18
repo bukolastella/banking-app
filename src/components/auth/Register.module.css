@@ -30,6 +30,7 @@
   border: none;
   border-bottom: 1px solid rgb(221, 221, 221);
 }
+.input input.dirty + label,
 .input input:valid + label,
 .input input:focus + label {
   transform: translateY(-20px);

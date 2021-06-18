@@ -1,5 +1,6 @@
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
+import Home from "./components/home/Home";
 import { Switch, Route, Redirect } from "react-router";
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
         </Route>
         <Route path="/register">
           <Signup />
+        </Route>
+        <Route path="/home">
+          <Home />
         </Route>
       </Switch>
     </div>

@@ -30,6 +30,7 @@ const Login = () => {
             type="email"
             required
             value={email}
+            className={email.length > 0 ? classes.dirty : null}
             onChange={(event) => setEmail(event.target.value)}
           />
           <label>Email</label>
@@ -40,6 +41,7 @@ const Login = () => {
             required
             value={password}
             minLength={6}
+            className={email.length > 0 ? classes.dirty : null}
             onChange={(event) => setPassword(event.target.value)}
           />
           <label>password</label>

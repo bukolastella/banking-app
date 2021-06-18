@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const useInput = (url) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const history = useHistory();
 
   const loginHandler = async (event) => {
     event.preventDefault();
@@ -31,6 +33,9 @@ const useInput = (url) => {
       }, 3000);
     }
     setLoading(false);
+    if (response.ok) {
+      history.replace("/home");
+    }
   };
   return {
     password,

@@ -1,0 +1,16 @@
+.MenuRow {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0rem;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  color: #cbcbcf;
+  cursor: pointer;
+}
+@media (hover: hover) and (pointer: fine) {
+  .MenuRow:hover {
+    color: white;
+  }
+}
