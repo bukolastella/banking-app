@@ -8,3 +8,20 @@
   color: white;
   margin: 3rem 0rem;
 }
+
+@media (max-width: 1080px) {
+  .toggle {
+    padding: 1rem;
+  }
+}
+@media (max-width: 990px) {
+  .logo,
+  .dis {
+    display: none;
+  }
+
+  .toggle {
+    display: flex;
+    justify-content: center;
+  }
+}

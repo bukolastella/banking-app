@@ -1,16 +1,16 @@
 import React from "react";
 import MenuRow from "./MenuRow";
-import classes from "./Toggle.module.css";
-import Icon from "./Icon";
-
-const Toggle = () => {
+import classes from "./Menu.module.css";
+const Menu = (props) => {
   return (
-    <div className={classes.toggle}>
-      <div className={classes.logo}>
-        <i className="fas fa-piggy-bank fa-2x"></i>
-      </div>
-      <Icon />
-      <div className={classes.dis}>
+    <div className={classes.gray}>
+      <div className={classes.menu}>
+        <div className={classes.icon} onClick={props.click}>
+          <i className="fas fa-times fa-2x"></i>
+        </div>
+        <div className={classes.logo}>
+          <i className="fas fa-piggy-bank fa-2x"></i>
+        </div>
         <MenuRow>
           <i
             className="fas fa-home"
@@ -52,4 +52,4 @@ const Toggle = () => {
   );
 };
 
-export default Toggle;
+export default Menu;

@@ -1,0 +1,29 @@
+.Balance {
+  display: grid;
+  /* width: 100%;
+  height: 100%; */
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 10px 40px;
+  text-transform: capitalize;
+  row-gap: 5px;
+  padding-bottom: 0.3rem;
+}
+.name {
+  grid-column: 1/-1;
+  grid-template-rows: 1/2;
+  justify-self: flex-start;
+}
+.amt {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.send {
+  box-shadow: 0px 0px 10px #777777;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+}

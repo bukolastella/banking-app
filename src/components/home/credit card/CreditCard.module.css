@@ -1,0 +1,38 @@
+.gold {
+  background-color: #c8ed43;
+}
+.green {
+  background-color: #29a174;
+  color: white;
+}
+.CreditCard {
+  width: 80%;
+  /* width: 300px; */
+  margin: auto;
+  /* transition: 0.5s ease-in-out; */
+}
+@media (max-width: 1080px) {
+  .CreditCard {
+    width: 90%;
+  }
+}
+@media (max-width: 990px) {
+  .CreditCard {
+    width: 80%;
+  }
+}
+@media (max-width: 830px) {
+  .CreditCard {
+    width: 95%;
+  }
+}
+
+@media (max-width: 750px) {
+  .CreditCard {
+    display: grid;
+    grid-template-columns: 400px 40px 40px;
+    gap: 20px;
+    place-items: center;
+    display: none;
+  }
+}

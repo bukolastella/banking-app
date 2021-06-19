@@ -1,0 +1,20 @@
+.CreditHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin: 1rem 0rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px -1px rgba(29, 32, 47, 0.22);
+}
+@media (max-width: 750px) {
+  .CreditHead {
+    transform: rotate(-90deg);
+    width: 200px;
+    height: 40px;
+  }
+}

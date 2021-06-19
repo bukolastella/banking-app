@@ -1,0 +1,9 @@
+.History h1 {
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+@media (max-width: 750px) {
+  .History {
+    /* display: none; */
+  }
+}
