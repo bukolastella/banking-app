@@ -12,8 +12,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { bankAction } from "../../store/bank-slice";
 import { transferActions } from "../../store/transfer-slice";
 import Loader from "../ui/Loader";
+import { useHistory } from "react-router";
+
 const Home = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [loadingState, setLoadingState] = useState(false);
   const name = useSelector((state) => state.bank.name);
   const email = localStorage.getItem("email");
@@ -21,10 +24,14 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoadingState(true);
-      const response = await fetch(
+      let response = await fetch(
         `https://banking-app-7dc7f-default-rtdb.firebaseio.com/users.json?orderBy="email"&equalTo="${email}"&print=pretty`
       );
-      const data = await response.json();
+      let data = await response.json();
+      if (JSON.stringify(data) === "{}") {
+        history.go(0);
+        return;
+      }
       for (const key in data) {
         dispatch(bankAction.saveName(data[key].name));
         dispatch(bankAction.saveMyNo(data[key].accountNo));
@@ -73,11 +80,12 @@ const Home = () => {
           })
         );
       }
+
       setLoadingState(false);
     };
 
     fetchData();
-  }, [dispatch, email]);
+  }, [dispatch, email, history]);
   return (
     <div>
       {loadingState && <Loader color={true} />}
