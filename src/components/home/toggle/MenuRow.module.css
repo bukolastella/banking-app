@@ -8,6 +8,10 @@
   font-size: 1.1rem;
   color: #cbcbcf;
   cursor: pointer;
+  text-decoration: none;
+}
+.active {
+  color: white;
 }
 @media (hover: hover) and (pointer: fine) {
   .MenuRow:hover {

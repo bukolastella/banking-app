@@ -16,6 +16,19 @@
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: white transparent transparent transparent;
 }
+.color {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+.color div {
+  border: 8px solid rgb(50, 168, 170);
+  border-color: rgb(50, 168, 170) transparent transparent transparent;
+  width: 60px;
+  height: 60px;
+}
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
 }

@@ -1,0 +1,79 @@
+.SendMoney h3 {
+  margin: 1rem 0rem;
+  text-align: center;
+}
+.SendMoney {
+  width: 500px;
+  /* height: 500px; */
+  z-index: 10000;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  position: relative;
+}
+.btn {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  color: white;
+  background-color: rgb(50, 168, 170);
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pin {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.color {
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.178);
+  margin-top: 1rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.color div {
+  text-transform: capitalize;
+}
+.color input {
+  outline: none;
+  border: none;
+  padding: 0rem 0.5rem;
+  height: 30px;
+  margin: 1rem 0rem;
+}
+.Close {
+  position: absolute;
+  color: black;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    background-color: rgba(50, 168, 170, 0.822);
+  }
+}
+@media (max-width: 540px) {
+  .SendMoney {
+    width: 90%;
+  }
+}
+@media (max-width: 370px) {
+  .color {
+    width: 90%;
+  }
+}
+@media (max-width: 320px) {
+  .SendMoney {
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
+  }
+}

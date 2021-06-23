@@ -4,8 +4,6 @@ import classes from "./Login.module.css";
 import Loader from "../ui/Loader";
 import Error from "../ui/Error";
 import useInput from "../../hooks/use-input";
-// import Input from "./Input";
-
 const Login = () => {
   const {
     password,
@@ -23,7 +21,6 @@ const Login = () => {
   return (
     <Card>
       {error && <Error cancel={setError}>{error}</Error>}
-
       <form onSubmit={loginHandler}>
         <div className={classes.input}>
           <input
@@ -41,7 +38,7 @@ const Login = () => {
             required
             value={password}
             minLength={6}
-            className={email.length > 0 ? classes.dirty : null}
+            className={password.length > 0 ? classes.dirty : null}
             onChange={(event) => setPassword(event.target.value)}
           />
           <label>password</label>

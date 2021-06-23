@@ -1,11 +1,13 @@
 import React from "react";
 import classes from "./Card.module.css";
 import { NavLink } from "react-router-dom";
+import LogoName from "./LogoName";
 
 const Card = (props) => {
   return (
     <div className={classes.screen}>
       <div className={classes.Card}>
+        <LogoName />
         <div className={classes.flex}>
           <NavLink
             activeClassName={classes.active}

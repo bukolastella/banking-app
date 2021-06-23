@@ -17,13 +17,4 @@
   font-weight: 700;
   font-size: 1.5rem;
 }
-.send {
-  box-shadow: 0px 0px 10px #777777;
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  cursor: pointer;
-  display: none;
-}
+

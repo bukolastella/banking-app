@@ -1,13 +1,36 @@
 import React from "react";
 import Credit from "../Credit";
 import classes from "./Slider.module.css";
+import { useSelector } from "react-redux";
 
 const Slider = () => {
+  const balance = useSelector((state) => state.bank.balance);
+
   const data = [
-    { id: "1", name: "universal", amount: "$3443.3", expdate: "*2243 04/21" },
-    { id: "2", name: "gold", amount: "$2343.3", expdate: "*1043 07/21" },
-    { id: "3", name: "junior", amount: "$8743.3", expdate: "*6743 04/22" },
+    {
+      id: "1",
+      name: "universal",
+      amount: `$${balance.toLocaleString()}`,
+      expdate: "*2243 04/21",
+    },
+    {
+      id: "2",
+      name: "gold",
+      amount: "$2343.3",
+      expdate: "*1043 07/21",
+    },
+    {
+      id: "3",
+      name: "junior",
+      amount: "$8743.3",
+      expdate: "*6743 04/22",
+    },
   ];
+  // const data = [
+  //   { id: "1", name: "universal", amount: "$3443.3", expdate: "*2243 04/21" },
+  //   { id: "2", name: "gold", amount: "$2343.3", expdate: "*1043 07/21" },
+  //   { id: "3", name: "junior", amount: "$8743.3", expdate: "*6743 04/22" },
+  // ];
   const slides = data.map((ev, i) => {
     let k;
     let a;

@@ -6,15 +6,18 @@ const Icon = () => {
   const toggleHandler = () => {
     setstate((pre) => !pre);
   };
+  const close = () => {
+    setstate(false);
+  };
   return (
     <div>
       {!state && (
-        <div className={classes.icon} onClick={toggleHandler}>
+        <span className={classes.icon} onClick={toggleHandler}>
           <i className="fas fa-bars fa-2x"></i>
-        </div>
+        </span>
       )}
 
-      {state && <Menu click={toggleHandler} />}
+      {state && <Menu click={close} close={close} />}
     </div>
   );
 };

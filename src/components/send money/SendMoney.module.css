@@ -1,0 +1,112 @@
+.gray {
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.178);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SendMoney h3 {
+  margin: 1rem 0rem;
+  text-align: center;
+}
+.SendMoney {
+  width: 500px;
+  /* height: 500px; */
+  z-index: 10000;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  position: relative;
+}
+.input {
+  position: relative;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+.input label {
+  position: absolute;
+  top: 10px;
+  transition: 0.3s ease-in-out;
+  color: rgb(47, 57, 78);
+  cursor: text;
+  pointer-events: none;
+}
+.input input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+.input input.dirty + label,
+.input input:valid + label,
+.input input:focus + label {
+  transform: translateY(-20px);
+}
+.input input:focus {
+  font-size: 20px;
+  border-bottom: 1px solid green;
+}
+.abs {
+  position: absolute;
+  bottom: -35px;
+  text-align: center;
+  background-color: rgba(67, 170, 172, 0.658);
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  left: 50%;
+  margin-left: -105px;
+}
+.abs i {
+  margin-right: 1rem;
+}
+.btn {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  color: white;
+  background-color: rgb(50, 168, 170);
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn:disabled {
+  background-color: gray;
+  pointer-events: none;
+}
+.Close {
+  position: absolute;
+  color: black;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    background-color: rgba(50, 168, 170, 0.822);
+  }
+}
+@media (max-width: 540px) {
+  .SendMoney {
+    width: 90%;
+  }
+}

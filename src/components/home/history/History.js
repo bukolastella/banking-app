@@ -6,7 +6,7 @@ const History = () => {
   return (
     <div className={classes.History}>
       <h1>latest transactions</h1>
-      <HistoryRow />
+      <HistoryRow recent={true} />
     </div>
   );
 };

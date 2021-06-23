@@ -21,3 +21,8 @@
   color: rgba(0, 128, 0, 0.548);
   justify-self: flex-end;
 }
+@media (max-width: 490px) {
+  .CreditRow {
+    grid-template-columns: 60px 1fr 1fr;
+  }
+}

@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-// import ReactDOM from "react-dom";
 import { Bar } from "react-chartjs-2";
-
+import { useSelector } from "react-redux";
 // import "./styles.css";
 
 const Chart = () => {
+  const date = useSelector((state) => state.bank.date);
+  const posAmount = useSelector((state) => state.bank.posAmount);
+  const negAmount = useSelector((state) => state.bank.negAmount);
+  const dateLabels = date.map((ev) => {
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const dayName = days[new Date(ev).getDay()];
+    return dayName;
+  });
+  const adjDateLabels = dateLabels.slice(-7);
   const [state] = useState({
     data: {
-      labels: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
+      labels: adjDateLabels,
       datasets: [
         {
           label: "Outflow",
@@ -16,7 +24,9 @@ const Chart = () => {
           borderWidth: 1,
           hoverBackgroundColor: "rgba(255,99,132,0.4)",
           hoverBorderColor: "rgba(255,99,132,1)",
-          data: [65, 59, 80, 81, 56, 55, 40],
+          data: Object.values(negAmount)
+            .map((ev) => Math.abs(ev))
+            .slice(-7),
         },
 
         {
@@ -26,8 +36,11 @@ const Chart = () => {
           borderWidth: 1,
           hoverBackgroundColor: "rgba(255,99,132,0.4)",
           hoverBorderColor: "rgba(255,99,132,1)",
-          data: [45, 79, 50, 41, 16, 85, 20],
+          data: Object.values(posAmount).slice(-7),
         },
+        // {
+        //   label: "CHART STATISTICS",
+        // },
       ],
     },
   });
@@ -38,7 +51,10 @@ const Chart = () => {
       display: false,
     },
     scales: {
-      x: { grid: { display: false } },
+      x: {
+        grid: { display: false },
+      },
+      // y: { grid: { display: false } },
     },
     type: "bar",
   };

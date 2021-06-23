@@ -16,10 +16,32 @@ const Register = () => {
     loginHandler: registerHandler,
     setEmail,
     setPassword,
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
   } = useInput(
-    "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDXsGc-C5AZGrgtOB6J5N2_-LG9xaAm4rY"
+    "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDXsGc-C5AZGrgtOB6J5N2_-LG9xaAm4rY",
+    true
   );
-
+  const firstNameBlurHandler = () => {
+    if (firstName.trim().length === 0) {
+      setError("Fill All Fields");
+      setFirstName("");
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+    }
+  };
+  const lastNameBlurHandler = () => {
+    if (lastName.trim().length === 0) {
+      setError("Fill All Fields");
+      setLastName("");
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+    }
+  };
   return (
     <Card>
       {error && <Error cancel={setError}>{error}</Error>}
@@ -31,7 +53,13 @@ const Register = () => {
               width: "45%",
             }}
           >
-            <input type="text" required />
+            <input
+              type="text"
+              required
+              onChange={(event) => setFirstName(event.target.value)}
+              value={firstName}
+              onBlur={firstNameBlurHandler}
+            />
             <label>first name</label>
           </div>
           <div
@@ -40,7 +68,13 @@ const Register = () => {
               width: "45%",
             }}
           >
-            <input type="text" required />
+            <input
+              type="text"
+              required
+              onChange={(event) => setLastName(event.target.value)}
+              value={lastName}
+              onBlur={lastNameBlurHandler}
+            />
             <label>last name</label>
           </div>
         </div>
@@ -60,7 +94,7 @@ const Register = () => {
             required
             value={password}
             minLength={6}
-            className={email.length > 0 ? classes.dirty : null}
+            className={password.length > 0 ? classes.dirty : null}
             onChange={(event) => setPassword(event.target.value)}
           />
           <label>password</label>
