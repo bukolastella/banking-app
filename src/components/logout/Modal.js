@@ -2,15 +2,18 @@ import React from "react";
 import classes from "./Modal.module.css";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
+import { useHistory } from "react-router";
 
 const Modal = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const noHandler = () => {
     dispatch(uiActions.logout());
   };
   const yesHandler = () => {
     dispatch(uiActions.logout());
     dispatch(uiActions.logoutHandler());
+    history.go(0);
   };
   return (
     <div className={classes.Modal}>

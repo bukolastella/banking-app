@@ -49,11 +49,9 @@ const Home = () => {
         }, {});
         const realData = { ...dateToData };
         dispatch(bankAction.saveTranData(realData));
-        // console.log(realData);
         for (const key in dateToData) {
           dateToData[key] = dateToData[key].map((ev) => ev.amount);
         }
-        // console.log(dateToData);
         const date = Object.keys(dateToData);
         const dateToPosAmount = { ...dateToData };
         const dateToNegAmount = { ...dateToData };
@@ -67,7 +65,6 @@ const Home = () => {
             return a < 0 ? r + a : r;
           }, 0);
         }
-        // console.log(dateToNegAmount, dateToPosAmount);
         dispatch(
           bankAction.saveDateToData({
             date,
@@ -90,7 +87,7 @@ const Home = () => {
             <Toggle />
           </div>
           <div className={classes.header}>
-            <Header name={`welcome back! ${name}`} />
+            <Header name={`hi, ${name}`} />
           </div>
           <div className={classes.balance}>
             <Balance />

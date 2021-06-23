@@ -40,8 +40,6 @@ const Transaction = () => {
           acc[d.date] = data[key].movements.filter((g) => g.date === d.date);
           return acc;
         }, {});
-        // console.log(dateToData);
-        // console.log(Object.entries(dateToData));
 
         dispatch(bankAction.saveTranData(dateToData));
       }
@@ -52,7 +50,7 @@ const Transaction = () => {
   useEffect(() => {
     const sortArray = Object.entries(tranData);
     const filterArray = sortArray.filter(
-      ([key, value]) =>
+      ([key]) =>
         new Date(key).setHours(0, 0, 0, 0) >=
           new Date(stateStartDate).setHours(0, 0, 0, 0) &&
         new Date(key).setHours(0, 0, 0, 0) <=

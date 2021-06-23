@@ -23,6 +23,11 @@
   padding: 2rem;
   position: relative;
 }
+.real {
+  background-color: rgba(67, 170, 172, 0.658);
+  padding: 0.3rem;
+  font-weight: bold;
+}
 .input {
   position: relative;
   height: 35px;

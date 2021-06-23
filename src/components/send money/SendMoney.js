@@ -90,77 +90,82 @@ const SendMoney = () => {
   return (
     <div className={classes.gray}>
       {!nextPage && (
-        <div className={classes.SendMoney}>
-          <span className={classes.Close} onClick={closeHandler}>
-            <i className="fas fa-times fa-2x"></i>
-          </span>
-          <h3>Send Money Details</h3>
-          <form onSubmit={submitHandler}>
-            <div className={classes.input}>
-              <input
-                type="text"
-                required
-                defaultValue={`$${balance.toLocaleString()}`}
-                style={{ pointerEvents: "none" }}
-              />
-              <label>from Account: Universal </label>
+        <div>
+          {loading && <Loader color={true} />}
+          {!loading && (
+            <div className={classes.SendMoney}>
+              <span className={classes.Close} onClick={closeHandler}>
+                <i className="fas fa-times fa-2x"></i>
+              </span>
+              <h3>Send Money Details</h3>
+              <form onSubmit={submitHandler}>
+                <div className={classes.input}>
+                  <input
+                    className={classes.real}
+                    type="text"
+                    required
+                    defaultValue={`$${balance.toLocaleString()}`}
+                    style={{ pointerEvents: "none" }}
+                  />
+                  <label>from Account: Universal </label>
+                </div>
+                <div className={classes.input}>
+                  <input
+                    type="text"
+                    required
+                    value={accountNo}
+                    onChange={(event) => setAccountNo(event.target.value)}
+                    onBlur={accountNoHandler}
+                  />
+                  <label>Enter Destination Account Number</label>
+                  <div
+                    className={classes.abs}
+                    style={{
+                      display: visible ? "block" : "none",
+                      backgroundColor: error ? "rgba(255, 0, 0, 0.493)" : null,
+                    }}
+                  >
+                    {!loading && !error && (
+                      <>
+                        <i className="fas fa-user-check"></i>
+                        {desNo}
+                      </>
+                    )}
+                    {error && <p>You can't send money to self.</p>}
+                  </div>
+                </div>
+                <div className={classes.input}>
+                  <input
+                    type="number"
+                    min="100"
+                    className={amount < 100 ? classes.dirty : null}
+                    value={amount}
+                    onChange={(event) => setAmount(event.target.value)}
+                    required
+                  />
+                  <label>Enter Amount</label>
+                </div>
+                <div className={classes.input}>
+                  <input
+                    type="text"
+                    required
+                    maxLength="20"
+                    value={narr}
+                    onChange={(event) => setNarr(event.target.value)}
+                    onBlur={narrBlurHandler}
+                  />
+                  <label>Enter Narration</label>
+                </div>
+                <button
+                  type="submit"
+                  className={classes.btn}
+                  disabled={error ? true : null}
+                >
+                  continue
+                </button>
+              </form>
             </div>
-            <div className={classes.input}>
-              <input
-                type="text"
-                required
-                value={accountNo}
-                onChange={(event) => setAccountNo(event.target.value)}
-                onBlur={accountNoHandler}
-              />
-              <label>Enter Destination Account Tag</label>
-              <div
-                className={classes.abs}
-                style={{
-                  display: visible ? "block" : "none",
-                  backgroundColor: error ? "rgba(255, 0, 0, 0.493)" : null,
-                }}
-              >
-                {loading && <Loader color={true} />}
-                {!loading && !error && (
-                  <>
-                    <i className="fas fa-user-check"></i>
-                    {desNo}
-                  </>
-                )}
-                {error && <p>You can't send money to self.</p>}
-              </div>
-            </div>
-            <div className={classes.input}>
-              <input
-                type="number"
-                min="100"
-                className={amount < 100 ? classes.dirty : null}
-                value={amount}
-                onChange={(event) => setAmount(event.target.value)}
-                required
-              />
-              <label>Enter Amount</label>
-            </div>
-            <div className={classes.input}>
-              <input
-                type="text"
-                required
-                maxLength="20"
-                value={narr}
-                onChange={(event) => setNarr(event.target.value)}
-                onBlur={narrBlurHandler}
-              />
-              <label>Enter Narration</label>
-            </div>
-            <button
-              type="submit"
-              className={classes.btn}
-              disabled={error ? true : null}
-            >
-              continue
-            </button>
-          </form>
+          )}
         </div>
       )}
       {nextPage && <ConfirmMoney click={closeHandler} />}

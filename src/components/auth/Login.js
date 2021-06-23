@@ -4,6 +4,7 @@ import classes from "./Login.module.css";
 import Loader from "../ui/Loader";
 import Error from "../ui/Error";
 import useInput from "../../hooks/use-input";
+
 const Login = () => {
   const {
     password,
@@ -17,7 +18,6 @@ const Login = () => {
   } = useInput(
     "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXsGc-C5AZGrgtOB6J5N2_-LG9xaAm4rY"
   );
-
   return (
     <Card>
       {error && <Error cancel={setError}>{error}</Error>}

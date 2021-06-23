@@ -6,7 +6,6 @@ const uiSlice = createSlice({
     logout: false,
     showSendModal: false,
     token: localStorage.getItem("token"),
-    // email: "",
   },
   reducers: {
     logout(state) {
@@ -27,9 +26,6 @@ const uiSlice = createSlice({
       localStorage.removeItem("deadLine");
       localStorage.removeItem("email");
     },
-    // emailHandler(state, action) {
-    //   state.email = action.payload;
-    // },
   },
 });
 export const uiActions = uiSlice.actions;
