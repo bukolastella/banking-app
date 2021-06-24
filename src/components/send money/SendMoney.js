@@ -18,6 +18,7 @@ const SendMoney = () => {
   const [visible, setVisible] = useState(false);
   const [amount, setAmount] = useState("");
   const [nextPage, setNextPage] = useState(false);
+  const [errorMess, setErrorMess] = useState("");
   const submitHandler = (event) => {
     event.preventDefault();
     if (narr.trim().length === 0) {
@@ -63,10 +64,11 @@ const SendMoney = () => {
       return;
     }
     if (myNo === accountNo) {
-      console.log("sj");
+      // console.log("sj");
       setLoading(false);
       setError(true);
       setVisible(true);
+      setErrorMess("You can't send money to self.");
       return;
     }
     setError(false);
@@ -74,7 +76,14 @@ const SendMoney = () => {
       `https://banking-app-7dc7f-default-rtdb.firebaseio.com/users.json?orderBy="accountNo"&equalTo="${accountNo}"&print=pretty`
     );
     const data = await response.json();
-
+    if (JSON.stringify(data) === "{}") {
+      console.log(data);
+      setLoading(false);
+      setError(true);
+      setVisible(true);
+      setErrorMess("Can't find user");
+      return;
+    }
     for (const key in data) {
       dispatch(
         transferActions.updateUrl({
@@ -131,7 +140,7 @@ const SendMoney = () => {
                         {desNo}
                       </>
                     )}
-                    {error && <p>You can't send money to self.</p>}
+                    {error && <p>{errorMess}</p>}
                   </div>
                 </div>
                 <div className={classes.input}>

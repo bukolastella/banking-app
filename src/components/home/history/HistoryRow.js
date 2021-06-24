@@ -16,7 +16,11 @@ const HistoryRow = (props) => {
       const lastTwoDateDetail = lastDateDetail.slice(-2);
       const dateKey = new Date(lastDate);
       const adjDateKey = String(dateKey).split(" ");
-      const result = lastTwoDateDetail.map((ev) =>
+      const reversedData = [...lastTwoDateDetail];
+      reversedData.reverse();
+      // console.log(reversedData);
+
+      const result = reversedData.map((ev) =>
         ev.amount >= 0 ? (
           <CreditRow key={Math.random()} narr={ev.narration} amt={ev.amount} />
         ) : (
@@ -44,6 +48,7 @@ const HistoryRow = (props) => {
           <DebitRow key={Math.random()} narr={ev.narration} amt={ev.amount} />
         )
       );
+      result.reverse();
       reveal = (
         <div className={classes.margin} key={Math.random()}>
           <span className={classes.HistoryRow}>
@@ -54,6 +59,7 @@ const HistoryRow = (props) => {
       );
       rare.push(reveal);
     }
+    rare.reverse();
   }
   return (
     <>

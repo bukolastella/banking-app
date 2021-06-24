@@ -58,7 +58,7 @@ const useInput = (url, register = false) => {
       accountNo: `BS-${Math.random().toString(16).slice(11)}`,
       pin: password,
       email: email,
-      height: "red",
+      // height: "red",
       movements: [
         { date: "06/17/21", amount: 10000, narration: "account opening" },
         // { date: "06/18/21", amount: -3000, narration: "udemy course" },
