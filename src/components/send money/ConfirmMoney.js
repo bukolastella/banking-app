@@ -85,7 +85,7 @@ const ConfirmMoney = (props) => {
             style={{
               border: error ? "1px solid red" : null,
             }}
-            type="text"
+            type="password"
             value={pinState}
             onChange={(event) => setPinState(event.target.value)}
           />
