@@ -24,29 +24,33 @@ const Transaction = () => {
   const [loadingState, setLoadingState] = useState(false);
   const dispatch = useDispatch();
   const tranData = useSelector((state) => state.bank.tranData);
+  const email = localStorage.getItem("email");
 
   useEffect(() => {
     const fetchData = async () => {
       setLoadingState(true);
+      // const response = await fetch(
+      //   "https://banking-app-7dc7f-default-rtdb.firebaseio.com/users.json"
+      // );
       const response = await fetch(
-        "https://banking-app-7dc7f-default-rtdb.firebaseio.com/users.json"
+        `https://banking-app-7dc7f-default-rtdb.firebaseio.com/users.json?orderBy="email"&equalTo="${email}"&print=pretty`
       );
       const data = await response.json();
       for (const key in data) {
         //group by date
-        const dateToData = data[key].movements.reduce((acc, d) => {
+        const k = [...data[key].movements];
+        const dateToData = k.reduce((acc, d) => {
           if (Object.keys(acc).includes(d.date)) return acc;
 
           acc[d.date] = data[key].movements.filter((g) => g.date === d.date);
           return acc;
         }, {});
-
         dispatch(bankAction.saveTranData(dateToData));
       }
       setLoadingState(false);
     };
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, email]);
   useEffect(() => {
     const sortArray = Object.entries(tranData);
     const filterArray = sortArray.filter(
@@ -95,7 +99,7 @@ const Transaction = () => {
           <div className={classes.history}>
             <div className={classes.hist}>
               <p>All Transactions</p>
-              <HistoryRow />
+              <HistoryRow recent={false} />
             </div>
           </div>
         </div>
