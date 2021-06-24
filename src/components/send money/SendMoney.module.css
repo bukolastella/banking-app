@@ -74,8 +74,9 @@
   justify-content: center;
   align-items: center;
   width: fit-content;
-  left: 50%;
-  margin-left: -105px;
+  right: 0;
+  /* left: 50%;
+  margin-left: -105px; */
 }
 .abs i {
   margin-right: 1rem;
