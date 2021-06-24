@@ -31,6 +31,8 @@ const ConfirmMoney = (props) => {
       narration: confirmState.narration,
       date: confirmState.date,
     };
+    console.log(confirmState.date);
+    console.log(new Date(confirmState.date));
     setLoading(true);
     fetch(
       `https://banking-app-7dc7f-default-rtdb.firebaseio.com/users/${confirmState.unique}/movements/${confirmState.movementNode}.json`,

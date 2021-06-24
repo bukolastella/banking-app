@@ -41,7 +41,7 @@ const SendMoney = () => {
         amount: amount,
         destinatedAccount: accountNo,
         destinatedAccountName: desNo,
-        date: new Date().toLocaleDateString(),
+        date: new Date().toLocaleDateString("en-US"),
       })
     );
     setNextPage(true);
@@ -147,6 +147,7 @@ const SendMoney = () => {
                   <input
                     type="number"
                     min="100"
+                    step="1"
                     className={amount < 100 ? classes.dirty : null}
                     value={amount}
                     onChange={(event) => setAmount(event.target.value)}
