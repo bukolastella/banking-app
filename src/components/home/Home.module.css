@@ -10,7 +10,7 @@
 .toogle {
   grid-column: 1/2;
   grid-row: 1/-1;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
 }
 .header {
@@ -65,25 +65,30 @@
   }
   .Home {
     grid-template-columns: 70px 1fr;
-    grid-template-rows: 0.5fr 0.5fr 250px 300px;
+    grid-template-rows: 0.5fr 100px 250px 200px;
+    height: 100vh;
   }
   .header {
     grid-column: 2/-1;
     grid-row: 1/2;
     padding: 0rem 1rem;
   }
+  .toogle {
+    grid-row: 1/2;
+  }
   .balance {
     grid-column: 2/-1;
     grid-row: 2/3;
-    padding: 0rem 1rem;
+    padding: 1rem;
+    /* place-self: center; */
   }
   .card {
-    grid-column: 2/-1;
+    grid-column: 1/-1;
     grid-row: 3/4;
     padding: 0rem 1rem;
   }
   .chart {
-    grid-column: 2/-1;
+    grid-column: 1/-1;
     grid-row: 4/-1;
     padding: 0rem 1rem;
   }
@@ -91,11 +96,11 @@
     display: block;
   }
 }
-@media (max-width: 370px) {
+/* @media (max-width: 370px) {
   .toogle {
     height: 100%;
   }
   .Home {
     height: 100%;
   }
-}
+} */

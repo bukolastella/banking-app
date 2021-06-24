@@ -87,7 +87,7 @@ const Home = () => {
     fetchData();
   }, [dispatch, email, history]);
   return (
-    <div>
+    <>
       {loadingState && <Loader color={true} />}
       {!loadingState && (
         <div className={classes.Home}>
@@ -114,7 +114,7 @@ const Home = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
