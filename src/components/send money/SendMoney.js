@@ -90,7 +90,7 @@ const SendMoney = () => {
   return (
     <div className={classes.gray}>
       {!nextPage && (
-        <div>
+        <div className={classes.chill}>
           {loading && <Loader color={true} />}
           {!loading && (
             <div className={classes.SendMoney}>
