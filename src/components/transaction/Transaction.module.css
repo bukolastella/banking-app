@@ -31,6 +31,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  margin: auto;
 }
 .date h3 {
   grid-column: 1/-1;
@@ -61,6 +62,7 @@
   width: 90%;
   margin-bottom: 2rem;
   overflow-y: auto;
+  margin: auto;
 }
 
 .hist p {
@@ -73,19 +75,21 @@
     display: grid;
     grid-template-columns: 0.3fr 2fr;
     grid-template-rows: 0.2fr 200px 1fr;
-    gap: 30px;
+    gap: 20px;
     width: 100%;
     height: 100vh;
   }
   .toogle {
     height: 100%;
+    grid-column: 1/2;
+    grid-row: 1/2;
   }
   .period {
-    grid-column: 2/-1;
+    grid-column: 1/-1;
     grid-row: 2/3;
   }
   .history {
-    grid-column: 2/-1;
+    grid-column: 1/-1;
     grid-row: 3/4;
   }
   .date {
