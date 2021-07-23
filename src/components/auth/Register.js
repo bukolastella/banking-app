@@ -21,7 +21,7 @@ const Register = () => {
     lastName,
     setLastName,
   } = useInput(
-    "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDXsGc-C5AZGrgtOB6J5N2_-LG9xaAm4rY",
+    `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_API_KEY}`,
     true
   );
   const firstNameBlurHandler = () => {

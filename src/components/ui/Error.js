@@ -7,7 +7,7 @@ const Error = (props) => {
   return (
     <div className={classes.error}>
       {props.children}
-      <span onClick={cancelHandler}>x</span>{" "}
+      <span onClick={cancelHandler}>x</span>
     </div>
   );
 };

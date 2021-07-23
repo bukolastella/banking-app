@@ -16,7 +16,7 @@ const Login = () => {
     setEmail,
     setPassword,
   } = useInput(
-    "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXsGc-C5AZGrgtOB6J5N2_-LG9xaAm4rY"
+    `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_API_KEY}`
   );
   return (
     <Card>
